@@ -3,7 +3,6 @@ package j.ava.example.chain.service.impl;
 import com.google.protobuf.ByteString;
 import io.grpc.stub.StreamObserver;
 import io.vertx.core.Vertx;
-import j.ava.example.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vmproto.VMGrpc;
@@ -19,9 +18,7 @@ public class VMService extends VMGrpc.VMImplBase {
 
     @Override
     public void initialize(Vm.InitializeRequest request, StreamObserver<Vm.InitializeResponse> responseObserver) {
-        logger.info("initialization");
-
-
+        logger.info("initialize called");
         responseObserver.onNext(
                 Vm.InitializeResponse.newBuilder()
                         .setHeight(7)

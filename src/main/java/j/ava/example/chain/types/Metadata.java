@@ -1,9 +1,7 @@
 package j.ava.example.chain.types;
 
-import j.ava.example.chain.service.impl.VMService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -34,6 +32,4 @@ public abstract class Metadata {
             System.exit(-1); //program cannot continue without sha-256 support
         }
     }
-
-
 }

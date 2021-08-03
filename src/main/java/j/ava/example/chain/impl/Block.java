@@ -2,8 +2,6 @@ package j.ava.example.chain.impl;
 
 import j.ava.example.chain.types.Metadata;
 
-import java.util.Arrays;
-
 public class Block extends Metadata {
 
     String ID;
