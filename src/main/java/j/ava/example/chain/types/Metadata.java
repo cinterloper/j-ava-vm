@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 public abstract class Metadata {
     enum Status {
@@ -17,6 +18,8 @@ public abstract class Metadata {
     public byte[] bytes;
     public byte[] ID;
     public Status status;
+    public Date timestamp;
+
 
     public void setStatus(Status s) {
         this.status = s;

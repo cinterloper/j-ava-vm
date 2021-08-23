@@ -12,6 +12,7 @@ public class VMService extends VMGrpc.VMImplBase {
     Logger logger = LoggerFactory.getLogger(VMService.class);
     Vertx vertx;
 
+
     public VMService(Vertx vertx) {
         this.vertx = vertx;
     }
