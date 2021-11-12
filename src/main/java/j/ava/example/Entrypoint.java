@@ -4,6 +4,7 @@ import io.vertx.core.Vertx;
 import io.vertx.grpc.VertxServer;
 import io.vertx.grpc.VertxServerBuilder;
 import j.ava.example.chain.service.impl.VMService;
+import j.ava.example.server.HttpServerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,5 +30,7 @@ public class Entrypoint {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        HttpServerImpl httpServer = new HttpServerImpl();
+        httpServer.startHttpServer(vertx);
     }
 }

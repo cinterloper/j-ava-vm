@@ -28,6 +28,8 @@ repositories {
 def grpcVersion = '1.38.1' // CURRENT_GRPC_VERSION
 
 dependencies {
+  implementation 'junit:junit:4.13.1'
+  compile "io.vertx:vertx-unit:4.1.2"
   compile "io.vertx:vertx-grpc:4.1.2"
   compile "io.vertx:vertx-core:4.1.2"
   compile "io.vertx:vertx-web:4.1.2"

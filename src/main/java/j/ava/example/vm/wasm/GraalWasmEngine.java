@@ -13,15 +13,9 @@ import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 public class GraalWasmEngine implements VM  {
-    public static class MyClass {
-        public int               id    = 42;
-        public String            text  = "42";
-        public int[]             arr   = new int[]{1, 42, 3};
-        public Callable<Integer> ret42 = () -> 42;
-    }
     @Override
     public Object eval(String program, String[] args) {
-        Path path = Paths.get("./helloWorld.wasm");
+        Path path = Paths.get(program);
         byte[] binary;
         try {
             binary = Files.readAllBytes(path);
@@ -38,17 +32,14 @@ public class GraalWasmEngine implements VM  {
             e.printStackTrace();
             return null;
         }
-        //allow calling registered java
         Context context = contextBuilder.allowAllAccess(true).build();
-        Value val = context.getBindings("wasm");
-        context.getBindings("wasm").putMember("javaObj", new MyClass());
-
-//        Value wasmBindings = context.getBindings("wasm");
-//        wasmBindings.putMember("env", new ENV());
 
         context.eval(source);
-        Value mainFunction = context.getBindings("wasm").getMember("main").getMember("helloWorld");
-
-        return mainFunction.execute();
+        Value mainFunction = context.getBindings("wasm").getMember("main").getMember("main");
+        int a = Integer.parseInt(args[0]);
+        int b = Integer.parseInt(args[1]);
+        Value returnVal = mainFunction.execute(a,b);
+        System.out.println("return value: " + returnVal.asInt());
+        return returnVal;
     }
 }
