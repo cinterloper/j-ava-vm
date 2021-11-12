@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 
-public class Server {
+public class Entrypoint {
 
     public static void main(String[] args) {
-        Logger logger = LoggerFactory.getLogger(Server.class);
+        Logger logger = LoggerFactory.getLogger(Entrypoint.class);
         Vertx vertx = Vertx.vertx();
         VMService VM = new VMService(vertx);
         String host = "0.0.0.0";

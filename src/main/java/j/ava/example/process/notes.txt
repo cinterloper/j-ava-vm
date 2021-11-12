@@ -1,0 +1,16 @@
+user account will broadcast a transaction containing
+  - program hash to run
+  - data hash to operate on
+  - maximum fee they will pay
+    - this becomes locked on the network
+  - threshold of computers that must agree
+
+nodes participating in the network may
+  - choose to accept the workload
+    - choose to accept the program
+    - choose to accept the data
+  - they may set a maximum runtime
+  - they may set a resource limit
+  - the first threshold of nodes to complete the workload with the same result split the users fee
+  - the computers must encrypt the data with a key derived by the network, not available to the user, then post it
+  - once they are all paid, the decryption key is revealed to the user
