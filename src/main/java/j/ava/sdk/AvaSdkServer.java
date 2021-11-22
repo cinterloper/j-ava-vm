@@ -6,11 +6,13 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 
+import io.vertx.core.impl.logging.Logger;
+import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.grpc.VertxServer;
 import io.vertx.grpc.VertxServerBuilder;
 import j.ava.sdk.block.Block;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import vmproto.VertxVMGrpc;
 import vmproto.Vm;
 
@@ -216,13 +218,20 @@ public class AvaSdkServer extends AbstractVerticle {
 
     @Override
     public void start() {
-        VertxServerBuilder localhost = VertxServerBuilder.forAddress(vertx, "localhost", 8080);
+        String magicKey = "VM_PLUGIN";
+        String magicVal = "dynamic";
+        int port = 8080;
+        //https://cheppers.com/post/hashicorps-go-plugin-extensive-tutorial/
+        String hcPluginHello = "1|1|tcp|127.0.0.1:" + port + "|grpc";
+
+        //1|8|unix|/tmp/plugin144809160|grpc| //from coreth
+        VertxServerBuilder localhost = VertxServerBuilder.forAddress(vertx, "localhost", port);
         localhost.addService(new AvaGrpcConn());
         logger.error("hello logger");
         VertxServer server = localhost.build();
         server.start(ar -> {
             if (ar.succeeded()) {
-                System.out.println("gRPC service started");
+                System.out.println(hcPluginHello);
             } else {
                 System.out.println("Could not start server " + ar.cause().getMessage());
             }
