@@ -1,0 +1,8 @@
+#!/bin/sh
+
+CP="/home/g/.m2/repository/io/vertx/vertx-grpc-protoc-plugin/4.2.0/vertx-grpc-protoc-plugin-4.2.0.jar":"/home/g/.m2/repository/com/salesforce/servicelibs/jprotoc/1.2.0/jprotoc-1.2.0.jar"
+ARGS=""
+JVMARGS=""
+
+"/home/g/software/graalvm-ce-java11-21.3.0/bin/java" $JVMARGS -cp $CP io.vertx.grpc.protoc.plugin.VertxGrpcGenerator $ARGS
+
