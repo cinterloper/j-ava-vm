@@ -107,3 +107,4 @@ $AVALANCHE_HOME/build/avalanchego
 #                      ├─{avalanchego}(1081117)
 #                      └─{avalanchego}(1081143)
 
+#Logs will appear at /tmp/j-ava-sdk-all.log
