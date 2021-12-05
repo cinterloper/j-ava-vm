@@ -3,6 +3,7 @@ package j.ava.sdk;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 
+import com.esotericsoftware.kryo.Kryo;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 
@@ -35,5 +36,11 @@ public abstract class Metadata {
             this.logger.error(nsae.getMessage());
             System.exit(-1); //program cannot continue without sha-256 support
         }
+    }
+    public byte[] Seralize(){
+        Kryo kryo = new Kryo();
+        kryo.register(this.getClass());
+
+        return this.toString().getBytes();
     }
 }

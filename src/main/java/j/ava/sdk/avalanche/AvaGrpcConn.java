@@ -1,4 +1,4 @@
-package j.ava.sdk;
+package avalanche;
 
 import com.google.protobuf.ByteString;
 import io.vertx.core.Future;
