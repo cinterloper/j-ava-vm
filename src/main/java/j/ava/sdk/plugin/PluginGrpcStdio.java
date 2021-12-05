@@ -1,4 +1,4 @@
-package j.ava.sdk;
+package j.ava.sdk.plugin;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.vertx.core.Vertx;
@@ -17,7 +17,7 @@ public class PluginGrpcStdio extends VertxGRPCStdioGrpc.GRPCStdioVertxImplBase {
     Vertx vertx;
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    PluginGrpcStdio(Vertx vertx) {
+    public PluginGrpcStdio(Vertx vertx) {
         this.vertx = vertx;
     }
 

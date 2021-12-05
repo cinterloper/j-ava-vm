@@ -8,6 +8,10 @@ import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.grpc.VertxServer;
 import io.vertx.grpc.VertxServerBuilder;
+import j.ava.sdk.avalanche.AvaGrpcConn;
+import j.ava.sdk.plugin.PluginGrpcBroker;
+import j.ava.sdk.plugin.PluginGrpcController;
+import j.ava.sdk.plugin.PluginGrpcStdio;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 
@@ -33,6 +37,8 @@ public class AvaSdkServer extends AbstractVerticle {
         grpcServer.addService(new AvaGrpcConn(vertx));
         grpcServer.addService(new PluginGrpcBroker(vertx));
         grpcServer.addService(new PluginGrpcStdio(vertx));
+        grpcServer.addService(new PluginGrpcController(vertx));
+
         logger.info("Starting " + this.getClass().getName());
         VertxServer server = grpcServer.build();
         server.start(ar -> {

@@ -1,7 +1,7 @@
-package j.ava.sdk.block;
+package j.ava.sdk.types.block;
 
 
-import j.ava.sdk.Metadata;
+import j.ava.sdk.types.Metadata;
 
 public class Block extends Metadata {
     public static Block fromBytes(byte[] inputBytes){

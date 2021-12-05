@@ -1,4 +1,4 @@
-package j.ava.sdk;
+package j.ava.sdk.types;
 
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;

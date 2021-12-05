@@ -11,12 +11,12 @@ public class PluginGrpcController extends VertxGRPCControllerGrpc.GRPCController
     Vertx vertx;
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    PluginGrpcController(Vertx vertx) {
+    public PluginGrpcController(Vertx vertx) {
         this.vertx = vertx;
     }
 
     @Override
-    public io.vertx.core.Future<plugin.GrpcController.Empty> shutdown(plugin.GrpcController.Empty request) {
+    public Future<plugin.GrpcController.Empty> shutdown(plugin.GrpcController.Empty request) {
         logger.info("received shutdown request on grpc");
         LocalMap<String, Boolean> intmetadata = vertx.sharedData().getLocalMap("InternalMetadata");
         intmetadata.replace("shutdown",true);

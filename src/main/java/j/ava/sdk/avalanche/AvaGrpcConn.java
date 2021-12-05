@@ -1,23 +1,23 @@
-package avalanche;
+package j.ava.sdk.avalanche;
 
 import com.google.protobuf.ByteString;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
-import j.ava.sdk.block.Block;
+import j.ava.sdk.types.block.Block;
 import vmproto.VertxVMGrpc;
 import vmproto.Vm;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-class AvaGrpcConn extends VertxVMGrpc.VMVertxImplBase {
+public class AvaGrpcConn extends VertxVMGrpc.VMVertxImplBase {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     Vertx vertx;
 
-    AvaGrpcConn(Vertx vertx) {
+    public AvaGrpcConn(Vertx vertx) {
         this.vertx = vertx;
         logger.info("AvaGrpcConn init");
     }

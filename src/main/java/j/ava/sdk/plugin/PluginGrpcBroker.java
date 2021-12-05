@@ -1,4 +1,4 @@
-package j.ava.sdk;
+package j.ava.sdk.plugin;
 
 import io.grpc.stub.StreamObserver;
 import io.vertx.core.Vertx;
@@ -15,7 +15,7 @@ public class PluginGrpcBroker extends GRPCBrokerGrpc.GRPCBrokerImplBase {
     Vertx vertx;
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    PluginGrpcBroker(Vertx vertx){
+    public PluginGrpcBroker(Vertx vertx){
         this.vertx = vertx;
         logger.info("creating PluginGrpcBroker");
     }
